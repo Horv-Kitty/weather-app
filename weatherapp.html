@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/a014eab474.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Ephesis&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Weather App</title>
+  </head>
+
+  <body>
+    <div class="body-size-color">
+      <div class="container">
+        <form class="row searching-head" id="searching-form">
+          <div class="col-6">
+            <input
+              type="search"
+              placeholder="Look around elsewhere..."
+              class="form-control"
+              id="searching-input"
+            />
+          </div>
+          <span class="col-2">
+            <button type="submit" class="searchingbutton">
+              <i class="fas fa-search-location"></i>
+            </button>
+          </span>
+          <span>
+            <button
+              type="submit"
+              class="searchingCurrentLocation"
+              id="current-location-button"
+            >
+              <i class="fas fa-map-marker-alt"></i></button
+          ></span>
+        </form>
+
+        <h1 class="current-city" id="city"></h1>
+        <div class="current-time" id="current-time"></div>
+
+        <div class="currentTemperature"><span id="temperature"></span>°</div>
+
+        <div class="weather-type"><span id="description"></span></div>
+        <div class="current-date" id="current-date"></div>
+
+        <div class="row weather-informations">
+          <div class="col-sm-4">
+            <div class="wind">
+              <strong>Wind</strong> <span id="wind"></span>km/h
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="humidity">
+              <strong>Humidity:</strong> <span id="humidity"></span>%
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="uv-index"><strong>UV index:</strong> 0</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-2">
+                <div class="monday">
+                  <p><strong>Mon</strong><br /><small>Okt 4</small></p>
+                  <small></small>
+                  <i class="fas fa-cloud-rain"></i>
+                  <p>
+                    17°<br />
+                    11°
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <div class="tuesday">
+                  <p><strong>Tue</strong><br /><small>Okt 5</small></p>
+                  <i class="fas fa-cloud-rain"></i>
+                  <p>
+                    16°<br />
+                    11°
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <div class="wednesday">
+                  <p><strong>Wed</strong><br /><small>Okt 6</small></p>
+                  <i class="fas fa-cloud-rain"></i>
+                  <p>
+                    15°<br />
+                    10°
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <div class="thursday">
+                  <p><strong>Thu</strong><br /><small>Okt 7</small></p>
+                  <i class="fas fa-cloud-sun"></i>
+                  <p>
+                    17°<br />
+                    10°
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <div class="friday">
+                  <p><strong>Fri</strong><br /><small>Okt 8</small></p>
+                  <i class="fas fa-cloud-sun"></i>
+                  <p>
+                    18°<br />
+                    9°
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <div class="saturday">
+                  <p><strong>Sat</strong><br /><small>Okt 9</small></p>
+                  <i class="fas fa-sun"></i>
+                  <p>
+                    17°<br />
+                    8°
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="img-container">
+      <img
+        src="images/rain-icon.svg"
+        alt="rainy-icon"
+        width="500"
+        class="current-icon"
+      />
+    </div>
+
+    <script src="js/javascript.js"></script>
+  </body>
+</html>

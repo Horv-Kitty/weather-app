@@ -1,0 +1,144 @@
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  font-family: "Ephesis", cursive;
+  font-size: 70px;
+}
+
+.currentTemperature {
+  text-align: center;
+  margin-top: 40px;
+  margin-left: 3%;
+  font-family: "Abril Fatface", cursive;
+  font-weight: 400;
+  color: #2f2e41;
+  font-size: 50px;
+}
+
+.current-time {
+  text-align: center;
+  font-size: 20px;
+  margin-top: -20px;
+}
+
+.weather-type,
+.current-date {
+  text-align: center;
+}
+
+.weather-type {
+  font-weight: 200;
+  font-size: 30px;
+  margin-top: -10px;
+  font-family: "Ephesis", cursive;
+  color: rgb(137, 160, 200);
+}
+
+.current-date {
+  font-size: 16px;
+}
+
+.body-size-color {
+  margin: 5% 30%;
+  padding: 2% 2%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 30px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+}
+
+.form-control {
+  border: 1px solid #ffbd63;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+}
+
+.searching-head {
+  position: relative;
+  left: 20%;
+  right: 10%;
+}
+
+.searchingCurrentLocation {
+  display: block;
+  position: absolute;
+  margin-left: 52.5%;
+  background-color: white;
+  color: rgb(137, 160, 200);
+  padding: 7px 13px;
+  border: hidden;
+  border-radius: 10px;
+  transition: all 200ms ease-in-out;
+  font-size: 20px;
+}
+
+.searchingCurrentLocation:hover {
+  cursor: pointer;
+  color: #ffba8c;
+}
+
+.searchingbutton {
+  display: block;
+  margin: 0 auto;
+  background-color: #ffba8c;
+  color: white;
+  padding: 7px 13px;
+  border: hidden;
+  border-radius: 10px;
+  transition: all 200ms ease-in-out;
+}
+
+.searchingbutton:hover {
+  cursor: pointer;
+  background-color: #dbdada;
+}
+
+.weather-informations {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.card,
+.card-body {
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.monday,
+.tuesday,
+.wednesday,
+.thursday,
+.friday,
+.saturday {
+  text-align: center;
+}
+
+.fa-sun,
+.fa-cloud-sun,
+.fa-cloud-rain {
+  font-size: 30px;
+  color: #2f2e41;
+  transition: all 200ms ease-in-out;
+}
+
+.fa-sun:hover {
+  color: #ffbd63;
+}
+
+.fa-cloud-sun:hover {
+  color: #dbdada;
+}
+
+.fa-cloud-rain:hover {
+  color: rgb(137, 160, 200);
+}
+
+.current-icon {
+  display: block;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  right: 10%;
+  z-index: -5;
+}
