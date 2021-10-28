@@ -141,6 +141,7 @@ h1 {
 
 .openSourceLink {
   color: rgb(137, 160, 200);
+  text-decoration: none;
 }
 
 .current-icon {
