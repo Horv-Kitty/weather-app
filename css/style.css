@@ -134,6 +134,15 @@ h1 {
   color: rgb(137, 160, 200);
 }
 
+.openSource {
+  text-align: center;
+  font-size: 12px;
+}
+
+.openSourceLink {
+  color: rgb(137, 160, 200);
+}
+
 .current-icon {
   display: block;
   position: absolute;
