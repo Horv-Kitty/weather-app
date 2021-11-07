@@ -12,7 +12,7 @@ h1 {
 
 #rain-message {
   font-size: 18px;
-  color: #ffba8c;
+  color: #495486;
   text-align: center;
   font-family: "Ephesis", cursive;
 }
@@ -36,6 +36,11 @@ h1 {
 
 #fahrenheit-link {
   color: rgb(137, 160, 200);
+}
+
+#fahrenheit-link:hover {
+  cursor: pointer;
+  color: #ffbd63;
 }
 
 .current-time {
