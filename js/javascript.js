@@ -44,9 +44,29 @@ function showCityTemperature(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
+
+  if (temperature >= -30 && temperature <= 0) {
+    let img = document.querySelector("#background-img");
+    img.src = "images/snow-icon.svg";
+  }
+
+  if (temperature >= 1 && temperature <= 17) {
+    let img = document.querySelector("#background-img");
+    img.src = "images/day-icon.svg";
+  }
+  if (temperature >= 18 && temperature <= 29) {
+    let img = document.querySelector("#background-img");
+    img.src = "images/light-sun-icon.svg";
+  }
+
+  if (temperature >= 30 && temperature <= 60) {
+    let img = document.querySelector("#background-img");
+    img.src = "images/sun-icon.svg";
+  }
 }
 
 function search(city) {
@@ -101,3 +121,5 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
+
+// change img
