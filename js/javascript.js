@@ -82,24 +82,22 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 search("Budapest");
 
 // change temperature
-//function convertToFahrenheit(event) {
-//event.preventDefault();
-//let temperatureElement = document.querySelector("#temperature");
-//let temperature = temperatureElement.innerHTML;
-//temperature = Number(temperature);
-//temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
-//}
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let temperature = temperatureElement.innerHTML;
+  temperature = Number(temperature);
+  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+}
 
-//function convertToCelsius(event) {
-//event.preventDefault();
-//let temperatureElement = document.querySelector("#temperature");
-//temperatureElement.innerHTML = 14;
-//}
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = 14;
+}
 
-//let fahrenheitLink = document.querySelector("#fahrenheit-link");
-//fahrenheitLink.addEventListener("click", convertToFahrenheit);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
-//let celsiusLink = document.querySelector("#celsius-link");
-//celsiusLink.addEventListener("click", convertToCelsius);
-
-// show the current city and temperature
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
