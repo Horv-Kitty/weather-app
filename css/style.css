@@ -5,6 +5,18 @@ h1 {
   font-size: 70px;
 }
 
+.rain-icon {
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.808);
+}
+
+#rain-message {
+  font-size: 18px;
+  color: #ffba8c;
+  text-align: center;
+  font-family: "Ephesis", cursive;
+}
+
 .currentTemperature,
 #temperature {
   text-align: center;

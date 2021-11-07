@@ -49,6 +49,29 @@ function showCityTemperature(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
 
+  console.log(humidity);
+  if (response.data.main.humidity >= 55 && response.data.main.humidity <= 100) {
+    document.querySelector("#rain-message").innerHTML =
+      '<i class="fas fa-umbrella"></i>' +
+      " It's probably raining. Take an umbrella. " +
+      '<i class="fas fa-umbrella"></i>';
+  }
+
+  if (
+    response.data.main.humidity >= 55 &&
+    response.data.main.humidity <= 100 &&
+    temperature <= 0
+  ) {
+    document.querySelector("#rain-message").innerHTML =
+      '<i class="far fa-snowflake"></i>' +
+      " It's probably snowing outside. " +
+      '<i class="far fa-snowflake"></i>';
+  }
+
+  if (response.data.main.humidity <= 54) {
+    document.querySelector("#rain-message").innerHTML = "";
+  }
+
   if (temperature >= -30 && temperature <= 0) {
     let img = document.querySelector("#background-img");
     img.src = "images/snow-icon.svg";
