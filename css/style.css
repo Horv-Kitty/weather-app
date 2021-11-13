@@ -1,3 +1,7 @@
+body {
+  background-color: #4954860c;
+}
+
 h1 {
   text-align: center;
   margin-top: 40px;
@@ -5,16 +9,40 @@ h1 {
   font-size: 70px;
 }
 
-.rain-icon {
-  border-radius: 30px;
-  background-color: rgba(255, 255, 255, 0.808);
+.rainAndSnowIcons {
+  text-align: center;
 }
 
-#rain-message {
+#rain-icon {
+  color: #575a89;
+}
+
+#rain-icon:hover #rain-message {
+  display: none;
+}
+
+#rain-icon:hover:before {
   font-size: 18px;
   color: #495486;
   text-align: center;
   font-family: "Ephesis", cursive;
+  content: "It's probably raining outside. Take an umbrella.  ";
+}
+
+#snow-icon {
+  color: #575a89;
+}
+
+#snow-icon:hover #snow-message {
+  display: none;
+}
+
+#snow-icon:hover:before {
+  font-size: 18px;
+  color: #495486;
+  text-align: center;
+  font-family: "Ephesis", cursive;
+  content: "It's probably snowing outside.  ";
 }
 
 .currentTemperature,
@@ -54,7 +82,7 @@ h1 {
   text-align: center;
 }
 
-.weather-type {
+#description {
   font-weight: 200;
   font-size: 26px;
   text-transform: capitalize;
@@ -64,13 +92,17 @@ h1 {
 }
 
 .current-date {
-  font-size: 16px;
+  font-size: 12px;
+}
+
+.current-icon {
+  display: block;
 }
 
 .body-size-color {
   margin: 5% 30%;
   padding: 2% 2%;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.87);
   border-radius: 30px;
   font-family: "Poppins", sans-serif;
   font-weight: 200;
@@ -90,20 +122,20 @@ h1 {
 
 .searchingCurrentLocation {
   display: block;
-  position: absolute;
-  margin-left: 52.5%;
-  background-color: white;
+  margin: 0 auto;
+  background-color: #4954860c;
   color: rgb(137, 160, 200);
-  padding: 7px 13px;
+  padding: 6px 14px;
   border: hidden;
   border-radius: 10px;
   transition: all 200ms ease-in-out;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .searchingCurrentLocation:hover {
   cursor: pointer;
   color: #ffba8c;
+  background-color: white;
 }
 
 .searchingbutton {
@@ -119,7 +151,8 @@ h1 {
 
 .searchingbutton:hover {
   cursor: pointer;
-  background-color: #dbdada;
+  background-color: #4954860c;
+  color: rgb(137, 160, 200);
 }
 
 .weather-informations {
@@ -174,13 +207,4 @@ h1 {
 .openSourceLink {
   color: rgb(137, 160, 200);
   text-decoration: none;
-}
-
-.current-icon {
-  display: block;
-  position: absolute;
-  top: 40%;
-  left: 40%;
-  right: 10%;
-  z-index: -5;
 }

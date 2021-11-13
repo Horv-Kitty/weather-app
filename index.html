@@ -43,23 +43,26 @@
               id="searching-input"
             />
           </div>
-          <span class="col-2">
+          <span class="col-1">
             <button type="submit" class="searchingbutton">
               <i class="fas fa-search-location"></i>
             </button>
           </span>
-          <span>
+          <span class="col-1">
             <button
               type="submit"
               class="searchingCurrentLocation"
               id="current-location-button"
             >
-              <i class="fas fa-map-marker-alt"></i></button
-          ></span>
+              <i class="fas fa-map-marker-alt"></i>
+            </button>
+          </span>
         </form>
 
         <h1 class="current-city" id="city"></h1>
+
         <div class="current-time" id="current-time"></div>
+        <div class="current-date" id="current-date"></div>
 
         <div class="currentTemperature">
           <span id="temperature"></span
@@ -71,9 +74,28 @@
           >
         </div>
 
-        <div class="weather-type"><span id="description"></span></div>
-        <div class="current-date" id="current-date"></div>
-        <div class="rain-icon"><p id="rain-message"></p></div>
+        <div class="weather-type">
+          <span id="description"></span>
+        </div>
+
+        <div class="rainAndSnowIcons">
+          <p class="rain-icon" id="rain-icon">
+            <i class="fas fa-umbrella"></i>
+          </p>
+          <p class="snow-icon" id="snow-icon">
+            <i class="far fa-snowflake"></i>
+          </p>
+        </div>
+
+        <div class="img-container">
+          <img
+            src="images/day-icon.svg"
+            alt="rainy-icon"
+            width="500"
+            class="current-icon"
+            id="background-img"
+          />
+        </div>
 
         <div class="row weather-informations">
           <div class="col-sm-4">
@@ -158,6 +180,7 @@
             </div>
           </div>
         </div>
+
         <div class="openSource">
           <a
             href="https://github.com/Horv-Kitty/weather-app"
@@ -168,16 +191,6 @@
           by Kitti Horvath
         </div>
       </div>
-    </div>
-
-    <div class="img-container">
-      <img
-        src="images/day-icon.svg"
-        alt="rainy-icon"
-        width="500"
-        class="current-icon"
-        id="background-img"
-      />
     </div>
 
     <script src="js/javascript.js"></script>

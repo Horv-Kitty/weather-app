@@ -49,12 +49,12 @@ function showCityTemperature(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
 
-  console.log(humidity);
   if (response.data.main.humidity >= 55 && response.data.main.humidity <= 100) {
-    document.querySelector("#rain-message").innerHTML =
-      '<i class="fas fa-umbrella"></i>' +
-      " It's probably raining. Take an umbrella. " +
-      '<i class="fas fa-umbrella"></i>';
+    document.querySelector(
+      ".rainAndSnowIcons"
+    ).innerHTML = `<p class="rain-icon" id="rain-icon">
+            <i class="fas fa-umbrella"></i>
+          </p>`;
   }
 
   if (
@@ -62,14 +62,15 @@ function showCityTemperature(response) {
     response.data.main.humidity <= 100 &&
     temperature <= 0
   ) {
-    document.querySelector("#rain-message").innerHTML =
-      '<i class="far fa-snowflake"></i>' +
-      " It's probably snowing outside. " +
-      '<i class="far fa-snowflake"></i>';
+    document.querySelector(
+      ".rainAndSnowIcons"
+    ).innerHTML = `<p class="snow-icon" id="snow-icon">
+            <i class="far fa-snowflake"></i>
+          </p>`;
   }
 
   if (response.data.main.humidity <= 54) {
-    document.querySelector("#rain-message").innerHTML = "";
+    document.querySelector(".rainAndSnowIcons").innerHTML = "";
   }
 
   if (temperature >= -30 && temperature <= 0) {
