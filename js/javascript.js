@@ -203,7 +203,7 @@ function displayForecast(response) {
     let weatherIcon = forecastDay.weather[0].icon;
 
     if (weatherIcon === "01d") {
-      weatherIcon = innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+      weatherIcon = innerHTML = `<i class="fas fa-sun"></i>`;
     }
 
     if (weatherIcon === "01n") {
