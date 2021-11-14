@@ -67,7 +67,11 @@
         <div class="currentTemperature">
           <span id="temperature"></span
           ><span class="units"
-            ><span id="celsius-link"> °C | </span
+            ><span
+              ><a href="#" id="celsius-link" style="text-decoration: none">
+                °C</a
+              >
+              | </span
             ><a href="#" id="fahrenheit-link" style="text-decoration: none"
               >°F</a
             ></span
@@ -109,77 +113,13 @@
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="uv-index"><strong>UV index:</strong> 0</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-2">
-                <div class="monday">
-                  <p><strong>Mon</strong><br /><small>Okt 4</small></p>
-                  <small></small>
-                  <i class="fas fa-cloud-rain"></i>
-                  <p>
-                    17°<br />
-                    11°
-                  </p>
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <div class="tuesday">
-                  <p><strong>Tue</strong><br /><small>Okt 5</small></p>
-                  <i class="fas fa-cloud-rain"></i>
-                  <p>
-                    16°<br />
-                    11°
-                  </p>
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <div class="wednesday">
-                  <p><strong>Wed</strong><br /><small>Okt 6</small></p>
-                  <i class="fas fa-cloud-rain"></i>
-                  <p>
-                    15°<br />
-                    10°
-                  </p>
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <div class="thursday">
-                  <p><strong>Thu</strong><br /><small>Okt 7</small></p>
-                  <i class="fas fa-cloud-sun"></i>
-                  <p>
-                    17°<br />
-                    10°
-                  </p>
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <div class="friday">
-                  <p><strong>Fri</strong><br /><small>Okt 8</small></p>
-                  <i class="fas fa-cloud-sun"></i>
-                  <p>
-                    18°<br />
-                    9°
-                  </p>
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <div class="saturday">
-                  <p><strong>Sat</strong><br /><small>Okt 9</small></p>
-                  <i class="fas fa-sun"></i>
-                  <p>
-                    17°<br />
-                    8°
-                  </p>
-                </div>
-              </div>
+            <div class="uv-index">
+              <strong>UV index:</strong> <span id="uv-index"></span>
             </div>
           </div>
         </div>
+
+        <div class="card" id="forecast"></div>
 
         <div class="openSource">
           <a

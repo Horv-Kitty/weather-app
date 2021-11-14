@@ -14,6 +14,7 @@ dateElement.innerHTML = `${hours}:${minutes}`;
 
 // change month and day
 let months = [
+  "December",
   "Januar",
   "Februar",
   "March",
@@ -24,7 +25,6 @@ let months = [
   "September",
   "October",
   "November",
-  "December",
 ];
 
 let month = months[currentTime.getMonth()];
@@ -35,9 +35,50 @@ if (day < 10) {
 let dateMonthAndDay = document.querySelector("#current-date");
 dateMonthAndDay.innerHTML = `${month} ${day}`;
 
-// change city
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function formatDate(timestamp) {
+  date = new Date(timestamp * 1000);
+  let months = [
+    "Dec",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Sep",
+    "Oct",
+    "Nov",
+  ];
+
+  let month = months[date.getMonth()];
+  let day = date.getDate();
+  if (day < 10) {
+    day = `0${day}`;
+  }
+
+  let dates = `${month} ${day}`;
+
+  return dates;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "311f1f45fee82242ab4086372ab360f5";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showCityTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
+  celsiusLink = response.data.main.temp;
+  let temperature = Math.round(celsiusLink);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${temperature}`;
   document.querySelector("#city").innerHTML = response.data.name;
@@ -65,7 +106,7 @@ function showCityTemperature(response) {
     document.querySelector(
       ".rainAndSnowIcons"
     ).innerHTML = `<p class="snow-icon" id="snow-icon">
-            <i class="far fa-snowflake"></i>
+            <i class="fas fa-snowflake"></i>
           </p>`;
   }
 
@@ -91,6 +132,8 @@ function showCityTemperature(response) {
     let img = document.querySelector("#background-img");
     img.src = "images/sun-icon.svg";
   }
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -123,27 +166,188 @@ searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-search("Budapest");
-
-// change temperature
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  let fahreinheitTemperature = (celsiusLink * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahreinheitTemperature);
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 14;
+  temperatureElement.innerHTML = Math.round(celsiusLink);
 }
+
+let celsiusLink = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
+let celsiusLinkB = document.querySelector("#celsius-link");
+celsiusLinkB.addEventListener("click", convertToCelsius);
 
-// change img
+search("Rotterdam");
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  document.querySelector("#uv-index").innerHTML = Math.round(
+    response.data.current.uvi
+  );
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="card-body"><div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    let weatherIcon = forecastDay.weather[0].icon;
+
+    if (weatherIcon === "01d") {
+      weatherIcon = innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+    }
+
+    if (weatherIcon === "01n") {
+      weatherIcon = innerHTML = `<i class="fas fa-moon"></i>`;
+    }
+
+    if (weatherIcon === "02d") {
+      weatherIcon = innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+    }
+
+    if (weatherIcon === "02n") {
+      weatherIcon = innerHTML = `<i class="fas fa-cloud-moon"></i>`;
+    }
+
+    if (
+      weatherIcon === "03d" ||
+      weatherIcon === "03n" ||
+      weatherIcon === "04d" ||
+      weatherIcon === "04n"
+    ) {
+      weatherIcon = innerHTML = `<i class="fas fa-cloud"></i>`;
+    }
+
+    if (weatherIcon === "09d" || weatherIcon === "09n") {
+      weatherIcon = innerHTML = `<i class="fas fa-cloud-rain"></i>`;
+    }
+
+    if (weatherIcon === "10d") {
+      weatherIcon = innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+    }
+
+    if (weatherIcon === "10n") {
+      weatherIcon = innerHTML = `<i class="fas fa-cloud-moon-rain"></i>`;
+    }
+
+    if (weatherIcon === "11d" || weatherIcon === "11n") {
+      weatherIcon = innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+    }
+
+    if (weatherIcon === "13d" || weatherIcon === "13n") {
+      weatherIcon = innerHTML = `<i class="far fa-snowflake"></i>`;
+    }
+
+    if (weatherIcon === "50d" || weatherIcon === "50n") {
+      weatherIcon = innerHTML = `<i class="fas fa-smog"></i>`;
+    }
+
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+                <div class="forecastDays">${formatDay(forecastDay.dt)} </div>
+                <div class="forecastDates">${formatDate(forecastDay.dt)}</div>
+                <div id="forecastIcon">${weatherIcon}</div>
+                <div class="forecastTemperatures">
+                <span class="forescastTemperatureDay">${Math.round(
+                  forecastDay.temp.day
+                )}°</span>
+                <span class="forescastTemperatureNight">${Math.round(
+                  forecastDay.temp.night
+                )}°</span>
+                </div>
+                </div>
+              `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div></div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function displayIcon(response) {
+  let weatherIcon = response.weather[0].icon;
+
+  if (weatherIcon === "01d") {
+    document.querySelector(
+      "#forecastIcon"
+    ).innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+  }
+
+  if (weatherIcon === "01n") {
+    document.querySelector(
+      "#forecastIcon"
+    ).innerHTML = `<i class="fas fa-moon"></i>`;
+  }
+
+  if (weatherIcon === "02d") {
+    document.querySelector(
+      "#forecastIcon"
+    ).innerHTML = `<i class="fas fa-cloud-sun"></i>`;
+  }
+
+  if (weatherIcon === "02n") {
+    document.querySelector(
+      "#forecastIcon"
+    ).innerHTML = `<i class="fas fa-cloud-moon"></i>`;
+  }
+
+  if (
+    weatherIcon === "03d" ||
+    weatherIcon === "03n" ||
+    weatherIcon === "04d" ||
+    weatherIcon === "04n"
+  ) {
+    document.querySelector(
+      "#forecastIcon"
+    ).innerHTML = `<i class="fas fa-cloud"></i>`;
+  }
+
+  if (weatherIcon === "09d" || weatherIcon === "09n") {
+    document.querySelector(
+      "#forecastIcon"
+    ).innerHTML = `<i class="fas fa-cloud-rain"></i>`;
+  }
+
+  if (weatherIcon === "10d") {
+    document.querySelector(
+      "#forecastIcon"
+    ).innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+  }
+
+  if (weatherIcon === "10n") {
+    document.querySelector(
+      "#forecastIcon"
+    ).innerHTML = `<i class="fas fa-cloud-moon-rain"></i>`;
+  }
+
+  if (weatherIcon === "11d" || weatherIcon === "11n") {
+    document.querySelector(
+      "#forecastIcon"
+    ).innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+  }
+
+  if (weatherIcon === "13d" || weatherIcon === "13n") {
+    document.querySelector(
+      "#forecastIcon"
+    ).innerHTML = `<i class="far fa-snowflake"></i>`;
+  }
+
+  if (weatherIcon === "50d" || weatherIcon === "50n") {
+    document.querySelector(
+      "#forecastIcon"
+    ).innerHTML = `<i class="fas fa-smog"></i>`;
+  }
+
+  return weatherIcon;
+}

@@ -13,38 +13,6 @@ h1 {
   text-align: center;
 }
 
-#rain-icon {
-  color: #575a89;
-}
-
-#rain-icon:hover #rain-message {
-  display: none;
-}
-
-#rain-icon:hover:before {
-  font-size: 18px;
-  color: #495486;
-  text-align: center;
-  font-family: "Ephesis", cursive;
-  content: "It's probably raining outside. Take an umbrella.  ";
-}
-
-#snow-icon {
-  color: #575a89;
-}
-
-#snow-icon:hover #snow-message {
-  display: none;
-}
-
-#snow-icon:hover:before {
-  font-size: 18px;
-  color: #495486;
-  text-align: center;
-  font-family: "Ephesis", cursive;
-  content: "It's probably snowing outside.  ";
-}
-
 .currentTemperature,
 #temperature {
   text-align: center;
@@ -67,6 +35,15 @@ h1 {
 }
 
 #fahrenheit-link:hover {
+  cursor: pointer;
+  color: #ffbd63;
+}
+
+#celsius-link {
+  color: #2f2e41;
+}
+
+#celsius-link:hover {
   cursor: pointer;
   color: #ffbd63;
 }
@@ -168,34 +145,78 @@ h1 {
 .card-body {
   border-radius: 30px;
   background-color: rgba(255, 255, 255, 0.719);
-}
-
-.monday,
-.tuesday,
-.wednesday,
-.thursday,
-.friday,
-.saturday {
   text-align: center;
 }
 
-.fa-sun,
-.fa-cloud-sun,
-.fa-cloud-rain {
-  font-size: 30px;
+.forecastDays {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.forecastDates {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.forecastTemperatures {
+  margin-top: 5px;
+}
+
+.forescastTemperatureDay {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.forescastTemperatureNight {
+  font-size: 14px;
+}
+
+.far {
+  font-size: 28px;
   color: #2f2e41;
   transition: all 200ms ease-in-out;
 }
 
-.fa-sun:hover {
+.fa-sun,
+.fa-cloud-sun,
+.fa-cloud-moon,
+.fa-cloud-moon-rain,
+.fa-cloud-showers-heavy,
+.fa-cloud-rain,
+.fa-moon,
+.fa-cloud,
+.fa-smog {
+  font-size: 28px;
+  color: #2f2e41;
+  transition: all 200ms ease-in-out;
+}
+
+.fa-cloud-sun-rain {
+  font-size: 28px;
+  color: #2f2e41;
+  transition: all 200ms ease-in-out;
+}
+
+.fa-sun:hover,
+.fa-cloud-sun:hover,
+.fa-cloud-sun-rain:hover {
   color: #ffbd63;
 }
 
-.fa-cloud-sun:hover {
+.fa-cloud:hover,
+.fa-smog:hover {
   color: #dbdada;
 }
 
-.fa-cloud-rain:hover {
+.fa-cloud-rain:hover,
+.fa-cloud-showers-heavy:hover,
+.fa-cloud-moon-rain:hover,
+.fa-cloud-moon:hover,
+.fa-moon:hover {
+  color: rgb(137, 160, 200);
+}
+
+.far:hover {
   color: rgb(137, 160, 200);
 }
 
@@ -207,4 +228,36 @@ h1 {
 .openSourceLink {
   color: rgb(137, 160, 200);
   text-decoration: none;
+}
+
+#rain-icon {
+  color: #575a89;
+}
+
+#rain-icon:hover #rain-message {
+  display: none;
+}
+
+#rain-icon:hover:before {
+  font-size: 18px;
+  color: #495486;
+  text-align: center;
+  font-family: "Ephesis", cursive;
+  content: "It's probably raining outside. Take an umbrella.  ";
+}
+
+#snow-icon {
+  color: #575a89;
+}
+
+#snow-icon:hover #snow-message {
+  display: none;
+}
+
+#snow-icon:hover:before {
+  font-size: 18px;
+  color: #495486;
+  text-align: center;
+  font-family: "Ephesis", cursive;
+  content: "It's probably snowing outside.  ";
 }
