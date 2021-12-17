@@ -47,7 +47,6 @@ function formatDay(timestamp) {
 function formatDate(timestamp) {
   date = new Date(timestamp * 1000);
   let months = [
-    "Dec",
     "Jan",
     "Feb",
     "Mar",
@@ -55,9 +54,11 @@ function formatDate(timestamp) {
     "May",
     "Jun",
     "Jul",
+    "Aug",
     "Sep",
     "Oct",
     "Nov",
+    "Dec",
   ];
 
   let month = months[date.getMonth()];
