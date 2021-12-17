@@ -14,7 +14,6 @@ dateElement.innerHTML = `${hours}:${minutes}`;
 
 // change month and day
 let months = [
-  "December",
   "Januar",
   "Februar",
   "March",
@@ -26,6 +25,7 @@ let months = [
   "September",
   "October",
   "November",
+  "December",
 ];
 
 let month = months[currentTime.getMonth()];
